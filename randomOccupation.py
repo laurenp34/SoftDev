@@ -13,3 +13,13 @@ with open('occupations.csv') as occupations:
         line_count += 1                                 #increase line count
 
 print(occupdict)
+
+##CREATE ARRAY WITH 1000 ELEMENTS, OCCUPATION PROPORTIONAL TO PERCENTAGES
+
+occuparray = []
+
+for key in occupdict.keys():
+    for i in range(occupdict[key]*10):
+        occuparray.append(occupdict[key])
+
+print(len(occuparray))
