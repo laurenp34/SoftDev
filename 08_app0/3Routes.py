@@ -16,6 +16,11 @@ def lunch():
     print("hamburger")
     return "Do not forget to eat lunch!"
 
+@app.route("/dinner")
+def dinner():
+    print("lasagna")
+    return "Have a good sleep"
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
