@@ -6,6 +6,16 @@ def hello_world():
     print(__name__)
     return "no hablo queso!"
 
+@app.route("/breakfast")
+def greeting():
+    print("scrambled eggs")
+    return "Good morning! Breakfast is important"
+
+@app.route("/lunch")
+def lunch():
+    print("hamburger")
+    return "Do not forget to eat lunch!"
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
