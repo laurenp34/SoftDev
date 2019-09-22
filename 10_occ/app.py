@@ -18,7 +18,7 @@ def index():
     header="Lauren and Ahmed, pd. 9",
     tblHeading1="Occupation",
     tblHeading2="Percent",
-    dict=test_dict
+    dict=randOcc.genDict("occupations.csv")
     )
 
 if __name__ == "__main__":
