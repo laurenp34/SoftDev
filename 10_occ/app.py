@@ -16,6 +16,7 @@ def index():
     "template.html",
     title="Team Chuck Schumer",
     header="Lauren and Ahmed, pd. 9",
+    random_occupation=randOcc.main(),
     tblHeading1="Occupation",
     tblHeading2="Percent",
     dict=randOcc.genDict("occupations.csv")
