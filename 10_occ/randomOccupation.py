@@ -35,7 +35,7 @@ def main():
     occuparray = genArray(occupdict)
     #print(occuparray)
     occ = chooseOccupation(occuparray)
-    print(occ)
+    #print(occ)
     return occ
 
 main()
