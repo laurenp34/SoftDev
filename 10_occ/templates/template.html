@@ -9,12 +9,12 @@
       <h1> {{header}} </h1>
       <h2> {{random_occupation}} </h2>
       <table style="width:40%", border="1">
-        <tr>
+        <tr> <!--  create table with 2 columns -->
           <th> {{tblHeading1}} </th>
           <th> {{tblHeading2}} </th>
         </tr>
         {% for row in dict %}
-        <tr>
+        <tr> <!-- create new row with key on left, then value -->
           <td>{{row}}</td>
           <td>{{dict.get(row)}}</td>
         </tr>
