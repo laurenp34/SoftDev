@@ -11,19 +11,20 @@ test_dict = {
 }
 
 @app.route("/")
-def homepage():
-    return "Go to /occupyflaskst"
+def home():
+    return "Go to: /occupyflaskst"
 
 @app.route("/occupyflaskst")
 def index():
     return render_template(
     "template.html",
-    title="Team Chuck Schumer",
-    header="Lauren and Ahmed, pd. 9",
+    title="SCHUMER - 10_occ",
+    header="Fields of occupation, and their percentages",
+    subheader="by TEAM CHUCK SCHUMER (Lauren Pehlivanian and Ahmed Sultan, pd 9)",
     random_occupation=randOcc.main(),
     tblHeading1="Occupation",
     tblHeading2="Percent",
-    dict=randOcc.genDict("occupations.csv")
+    dict=randOcc.dictGenerate("occupations.csv")
     )
 
 if __name__ == "__main__":
