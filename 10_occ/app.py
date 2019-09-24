@@ -10,7 +10,11 @@ test_dict = {
     'Firefighter':10
 }
 
-@app.route("/occupyflasks")
+@app.route("/")
+def homepage():
+    return "Go to /occupyflaskst"
+
+@app.route("/occupyflaskst")
 def index():
     return render_template(
     "template.html",
