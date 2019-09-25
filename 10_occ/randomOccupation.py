@@ -69,7 +69,7 @@ def occuPick(dict):
     for entry in dict:
         total = total + dict[entry]     #   update total to represent the range currently occupied
         if pickedNum < total:   #   if random number chosen is in the range between the previous entry and the current entry, output
-            print(pickedNum, '\t', entry)   #   print entry
+            #print(pickedNum, '\t', entry)   #   print entry
             return entry    #   output entry
             break
 

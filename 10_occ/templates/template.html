@@ -1,54 +1,59 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-      <title> {{title}} </title>
-</head>
-
-<body>
-      <h1> {{header}} </h1>
-      <h2> {{random_occupation}} </h2>
-      <table style="width:40%", border="1">
-        <tr> <!--  create table with 2 columns -->
-          <th> {{tblHeading1}} </th>
-          <th> {{tblHeading2}} </th>
-        </tr>
-        {% for row in dict %}
-        <tr> <!-- create new row with key on left, then value -->
-          <td>{{row}}</td>
-          <td>{{dict.get(row)}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-</body>
-
-</html> -->
 
 
 <!DOCTYPE html>
 
+
+
 <html>
+
   <head>
+
         <title>{{ title }}</title>
+
   </head>
+
   <body>
+
         <h1> {{header}} </h1>
+
         <h2> {{subheader}} </h2>
+
         <span class="randomly-picked"> Randomly picked occupation: <b>{{random_occupation}}</b> </span>
+
         <br>
+
         <br>
+
         <table style="width:40%", border="1">
+
           <tr>
+
             <th> {{tblHeading1}} </th>
+
             <th> {{tblHeading2}} </th>
+
+            <th> {{tblHeading3}} </th>
+
           </tr>
-          {% for row in dict %}
+
+          {% for row in occDict %}
+
           <tr>
+
             <td>{{row}}</td>
-            <td>{{dict.get(row)}}</td>
+
+            <td>{{occDict.get(row)}}</td>
+
+            <td><a href="{{linkDict.get(row)}}" >{{linkDict.get(row)}}</a></td>
+
           </tr>
+
           {% endfor %}
+
         </table>
+
   </body>
+
+
 
 </html>
