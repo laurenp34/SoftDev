@@ -1,0 +1,29 @@
+{% extends "parent.html" %}
+
+{% block head %}
+<h1> Login page </h1>
+{% endblock %}
+
+{% block content %}
+  {% for message in get_flashed_messages() %}
+  <br> {{ message }}<br>
+  {% endfor %}
+  <Center>
+  <h1> Enter login info: </h1>
+  {# if either user or password doesn't match, print corresponding stmt #}
+  {% if not uMatch %}
+    <p style="font-size:14px; color:red; font-style:italic;">Wrong username.<br>
+  {% endif %}
+  {% if not pMatch %}
+    <p style="font-size:14px; color:red; font-style:italic;">Wrong password.<br>
+  {% endif %}
+  <br>
+  <form action="/auth">
+    Username:  <input type="text" name="user">
+    <br>
+    Password:  <input type="text" name="pass">
+    <br>
+    <input type="submit" name="submit" value="Login">
+  </form>
+  </Center>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "parent.html" %}
+
+{% block head %}
+<h1> Error! </h1>
+{% endblock %}
+
+{% block title %}
+Error message
+{% endblock %}
+
+{% block content %}
+  {% for message in get_flashed_messages() %}
+  {{ message }}<br>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "parent.html" %}
+
+{% block head %}
+<h1> Welcome screen! </h1>
+{% endblock %}
+
+{% block content %}
+  {% for message in get_flashed_messages() %}
+  {{ message }}<br>
+  {% endfor %}
+  Welcome, {{ username }}!
+  <br>
+  <form action="/auth2">
+  <input type="submit" name="logout" value="Logout">
+  </form>
+{% endblock %}
