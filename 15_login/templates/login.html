@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <Center>
+      <h1> Enter login info: </h1>
+      {# if either user or password doesn't match, print corresponding stmt #}
+      {% if not uMatch %}
+        <p style="font-size:14px; color:red; font-style:italic;">Wrong username.<br>
+      {% endif %}
+      {% if not pMatch %}
+        <p style="font-size:14px; color:red; font-style:italic;">Wrong password.<br>
+      {% endif %}
+      <br>
+      <form action="/auth">
+        Username:  <input type="text" name="user">
+        <br>
+        Password:  <input type="text" name="pass">
+        <br>
+        <input type="submit" name="submit" value="Login">
+      </form>
+    </Center>
+  </body>
+</html>
