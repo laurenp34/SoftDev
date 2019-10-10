@@ -17,7 +17,7 @@ c = db.cursor()               #facilitate db ops
 # < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
 
 #REMOVE ROSTER (from when it was created before)
-c.execute("DROP TABLE roster")
+c.execute("DROP TABLE IF EXISTS roster")
 
 #create table with fields from both csv files
 # only create table if already doesn't exist (prevents duplicate error)
@@ -40,8 +40,10 @@ with open('students.csv') as stucsv:
          #print(row)
          # update age and name info for all rows(each row- based on id)
          cmd = "UPDATE roster SET name='"+row['name']+"', age="+row['age']+" WHERE id="+row['id']
-         print(cmd)
+         #print(cmd)
          c.execute(cmd)
+
+# c.execute("INSERT INTO roster VALUES(2, 'LAUREN', NULL, NULL, NULL)") TEST STMT 
 
 #create table with fields from both csv files
 # command = "CREATE TABLE IF NOT EXISTS roster (id INTEGER, name TEXT, age INTEGER, code TEXT, mark INTEGER)"          # test SQL stmt in sqlite3 shell, save as string
