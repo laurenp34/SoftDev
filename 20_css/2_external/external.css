@@ -1,0 +1,55 @@
+#totalBox {
+    width: 100%;
+    height: 350px;
+    background-color: black;
+}
+
+#header {
+    color: white;
+    height: 50px;
+    vertical-align: center;
+    text-align: center;
+    background-color: #D3D3D3;
+}
+
+#leftColumn {
+    padding-left: 1%;
+    width: 19%;
+    height: 300px;
+    float: left;
+    text-align: left;
+    background-color: #808080;
+}
+
+ul {
+    color: white;
+    list-style-type: none;
+    padding:1.5%;
+}
+
+a {
+  text-decoration:none;
+  color:white;
+}
+
+
+#rightColumn {
+    width: 80%;
+    height: 300px;
+    float: right;
+    text-align: left;
+    background-color: #808080;
+}
+
+#footer {
+    color: #808080;
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    background-color: #505050;
+}
+
+body {
+    background-color: #686868;
+    font-family: 'Arial';
+}
