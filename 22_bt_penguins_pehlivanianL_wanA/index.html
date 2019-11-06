@@ -33,16 +33,24 @@
         <div class="col-*-*" style="padding:15px">
           <h3><mark>Apply built-in Bootstrap formatting</mark></h3>
           <p>The Bootstrap stylesheet contains many built-in classes and css for those classes.</p>
+          <p>There are built-in classes for <strong>typography</strong>, <strong>buttons</strong>, <strong>forms</strong>, <strong>helpers</strong>, <strong>images</strong>, <strong>tables</strong>, <strong>dropdowns</strong>, and <strong>navigation components</strong>.
           <p>For example: </p>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>.btn-primary</mark> creates a blue button.</p>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>.img-rounded</mark> makes the edges of an image rounded.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;You can use the built-in formatting by setting the HTML class: <i><</i>tag class="class_name"></p>
           <p>You can see a list of all of the classes in the link above.</p>
         </div>
         <div class="col-*-*" style="padding:15px">
           <h3><mark>Responsive elements</mark></h3>
-          <p>If you zoom in/out on this webpage, the text automically shifts for the new size. This is an example of responsive web design.<p>
-          <p>The <strong>Grid System</strong> is a way to create responsive webpages.</h5>
-
+          <p>If you zoom in/out on this webpage, the text automically shifts for the new size. (If you zoom out enough the components should merge into one table). This is an example of responsive web design.<p>
+          <p>The <strong>Grid System</strong> is a way to create responsive webpages.</p>
+          <p>You can create a grid by first creating a div with class="container". **To make the grid responsive, set the container class to <strong>container-fluid</strong>, which sets the width to 100% across any sized window.</p>
+          <p>To add a new row to the grid, create a new div inside with class="row"</p>
+          <p>Then, within each row, you can create up to 12 columns. Grid columns are created by specificing the size of the window and then the number of the 12 available columns you wish to span.
+            <br>For example, setting class="<strong>col-sm-4</strong>" sizes your grid for a small window and creates 3 columns because each column takes up 4 of the 12 available columns.
+            <br>The available sizes are <strong>xs</strong>, <strong>sm</strong>, <strong>md</strong>, and <strong>lg</strong>.
+            <br>
+          </p>
         </div>
       </div>
     </div>
