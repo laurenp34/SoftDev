@@ -8,7 +8,7 @@
 
 <body>
 
-
+  <h1 class="title-heading">Quick Bootstrap Tutorial</h1>
 
 
   <div class="container-fluid">
@@ -21,8 +21,9 @@
         </ul>
       </div>
       <div class="row">
-        <h2>Get started with Bootstrap:</h2>
-        <h5>A helpful <a href="https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp">link</a> with Bootstrap CSS classes.</h5>
+        <h2>Get started with Bootstrap:
+          <small class="text-muted">A helpful <a href="https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp">link</a> with Bootstrap CSS classes.</small>
+        </h2>
       </div>
       <div class="row">
       <div class="col-*-*" style="padding:15px">
@@ -35,24 +36,43 @@
           <p>The Bootstrap stylesheet contains many built-in classes and css for those classes.</p>
           <p>There are built-in classes for <strong>typography</strong>, <strong>buttons</strong>, <strong>forms</strong>, <strong>helpers</strong>, <strong>images</strong>, <strong>tables</strong>, <strong>dropdowns</strong>, and <strong>navigation components</strong>.
           <p>For example: </p>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>.btn-primary</mark> creates a blue button.</p>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>.img-rounded</mark> makes the edges of an image rounded.</p>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;You can use the built-in formatting by setting the HTML class: <i><</i>tag class="class_name"></p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9642;<mark>.btn-primary</mark> creates a blue button.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9642;<mark>.img-rounded</mark> makes the edges of an image rounded.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9642;<mark>.text-muted</mark>makes secondary faded text next to a heading (we included an example above!)</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;You can use the built-in formatting by setting the HTML class: <strong><i><</i>tag class="class_name"></strong></p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9642;<mark> Mark Tags</mark> Highlights the text in yellow. <strong>ex:</strong> <i><</i>mark>Omelette<<i></i>/mark> creates <mark>Omelette</mark></p>
           <p>You can see a list of all of the classes in the link above.</p>
         </div>
         <div class="col-*-*" style="padding:15px">
           <h3><mark>Responsive elements</mark></h3>
           <p>If you zoom in/out on this webpage, the text automically shifts for the new size. (If you zoom out enough the components should merge into one table). This is an example of responsive web design.<p>
           <p>The <strong>Grid System</strong> is a way to create responsive webpages.</p>
-          <p>You can create a grid by first creating a div with class="container". **To make the grid responsive, set the container class to <strong>container-fluid</strong>, which sets the width to 100% across any sized window.</p>
+          <p>You can create a grid by first creating a div with class="container".
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;To make the grid responsive, set the container class to <strong>container-fluid</strong>, which sets the width to 100% across any sized window.</p>
           <p>To add a new row to the grid, create a new div inside with class="row"</p>
           <p>Then, within each row, you can create up to 12 columns. Grid columns are created by specificing the size of the window and then the number of the 12 available columns you wish to span.
-            <br>For example, setting class="<strong>col-sm-4</strong>" sizes your grid for a small window and creates 3 columns because each column takes up 4 of the 12 available columns.
-            <br>The available sizes are <strong>xs</strong>, <strong>sm</strong>, <strong>md</strong>, and <strong>lg</strong>.
-            <br>
+            <br>&nbsp;&nbsp;&#9642;For example, setting class="<strong>col-sm-4</strong>" sizes your grid for a small window and creates a column that takes up 4 blocks.
+            <br>&nbsp;&nbsp; Having 3 columns size 4 would take up the entire screen because there are only 12 available columns per row.
+            <br>&nbsp;&nbsp;&#9642;The available sizes are <strong>xs</strong>, <strong>sm</strong>, <strong>md</strong>, and <strong>lg</strong>.
+            <br>&nbsp;&nbsp;&#9642;To make the columns responsive, set the class to <strong>col-*-*</strong>. This allows the size of the column and window to adjust.</p>
           </p>
+          <p><strong>Example grid code:</strong> The code below makes two equally-sized columns in a fluid container.</p>
+          <pre><code>
+              <i><</i>div class="container-fluid">
+                <i><</i>div class="row">
+                  <i><</i>div class="col-*-*">
+                    <i><</i>h1>Good morning<i><</i>/h1>
+                  <i><</i>/div>
+                  <i><</i>div class="col-*-*">
+                    <i><</i>h1>Good night<i><</i>/h1>
+                  <i><</i>/div>
+                <i><</i>/div>
+              <i><</i>/div>
+            </code></pre>
         </div>
       </div>
     </div>
+
+    <h4>Congrats for making it to the end!</h4>
 
 </body>
