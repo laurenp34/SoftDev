@@ -1,23 +1,14 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <title>K24</title>
-</head>
-<body>
-  <h1 style="text-align: center">Countries API</h1>
-  <p style="text-align: center">Refresh for 3 new countries!</p>
-  <table>
-    <tr>
-      {% for country in countries %}
-      <td style="padding: 10px">
-        <h2>{{ country.name }}</h2>
-        <img src="{{ country.flag }}" alt="flag" height="150px" width="300px">
-        <p>Native Name: {{country.nativeName }}</p>
-        <p>Population: {{ country.population }}</p>
-        <p>Currency: {{ country.currencies[0].name }}</p>
-      </td>
-      {% endfor %}
-    </tr>
-  </table>
-</body>
+    <head>
+        <title>Index</title>
+    </head>
+
+    <body>
+        <a href="/randCountry">randCountry</a>
+        <br>
+        <a href="/randNHLTeam">randNHLTeam</a>
+        <br>
+        <a href="/randNHLLogo">randNHLLogo</a>
+    </body>
 </html>
