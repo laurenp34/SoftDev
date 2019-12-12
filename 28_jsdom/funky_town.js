@@ -1,4 +1,8 @@
-
+// Lauren Pehlivanian
+// SoftDev1 pd9
+// K #28: Sequential Progression II: Electric Boogaloo
+// 2019-12-11
+//TEAM POSTFIX
 
 /*
 var foo = function(n){
