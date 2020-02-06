@@ -9,34 +9,19 @@
   <h1>Welcone</h1>
   <meta charset = "UTF-8" />
 </head>
-<body> 
-	<button type="button" id="clear-canvas">clear canvas</button>
-	<button type="button" id="draw-rect">draw rect</button>
+<script src="clickdraw.js"></script>
+<body onload="setup()">
+	<button type="button" onclick="clearCanvas()">clear canvas</button>
+	<!-- <button type="button" onclick="makeRect()">draw rect</button> -->
 	<br>
-	<label class="switch">
-		<input type="checkbox">Rectangle Mode</input>
-		<input type="checkbox">Dot Mode</input>
-		<span class="slider"></span>
-	</label>
+	<select id="mode">
+		<option value="rect">Rectangle Mode</option>
+		<option value="dot">Dot Mode</option>
+		<option value="line">Line Mode</option>
+	</select>
 	<div>
 		<canvas height="600" width="600" id="slate">
 			Fallback text
 		</canvas>
 	</div>
 </body>
-<script>
-	document.getElementById('clear-canvas').onclick = function()
-{
-	const canvas = document.getElementById("slate");
-	const ctx = canvas.getContext('2d');
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-	document.getElementById('draw-rect').onclick = function()
-{
-	const canvas = document.getElementById("slate");
-	const ctx = canvas.getContext('2d');
-	ctx.fillRect(50,50,100,200);
-}
-//mousedown, mousemove, mouseup, mouseout
-</script>
-</html>
