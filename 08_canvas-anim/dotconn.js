@@ -11,13 +11,13 @@ function stop() {
 }
 
 function dvd() {
-	if( mode != "dvd"){
+	//if( mode != "dvd"){
 	    mode = "dvd"
 	    logo_x = Math.random()*400;
 	    logo_y = Math.random()*400;
 	    logo_vx = Math.random() * 14 - 7;
 	    logo_vy = Math.random() * 14 - 7;
-	}
+	//}
 }
 
 function paintSlide(timestamp) {
