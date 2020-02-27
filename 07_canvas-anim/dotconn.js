@@ -5,14 +5,14 @@ function animaniate(e) {
     //otherwise, animation would keep speeding up if already animating.
     if (!animate) {
 		    animate = true;
-        id = window.requestAnimationFrame(paintSlide);
+        //id = window.requestAnimationFrame(paintSlide);
     }
 }
 
 function stop() {
   if (animate) {
     animate = false;
-    window.cancelAnimationFrame(id);
+    // window.cancelAnimationFrame(id);
   }
 }
 
@@ -53,3 +53,4 @@ function setup() {
     window = document.defaultView;
     id = window.requestAnimationFrame(paintSlide);
 }
+

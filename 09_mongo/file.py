@@ -7,4 +7,4 @@ with open('data.json') as json_file:
         line.replace("$date", "date")
     data = json.load(json_file)
 
-#print(data)
+print(data)
