@@ -12,10 +12,16 @@ def get_data():
     json_file = open('data2.json')
     stuff = json_file.readlines()
     for line in stuff:
-        line.replace("$data","date")
-        restaurants.insert_one(loads(line))
+        line.replace("$date","date")
+        restaurants.insert_one(loads(line,strict=False))
 
-get_data()
+def ingest(f):
+    with open(f) as _f:
+        return loads(f'[{",".join(map(lambda s: s[:-1], _f))}]')
+
+#get_data()
+data = ingest("data.json")
+restaurants.insert(data)
 len = restaurants.count()
 # json_string = json_file.read()
 # json_string.replace("$date", "date")
