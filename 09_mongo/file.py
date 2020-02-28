@@ -2,9 +2,9 @@ from pymongo import MongoClient
 client = MongoClient()
 import json
 
-with open('data.json') as json_file:
-    for line in json_file:
-        line.replace("$date", "date")
-    data = json.load(json_file)
+json_file = open('data.json')
+json_string = json_file.read()
+json_string.replace("$date", "date")
+   # data = json.load(json_file)
 
-print(data)
+print(len(json_string))
