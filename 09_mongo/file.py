@@ -12,6 +12,7 @@ def get_data():
     json_file = open('data2.json')
     stuff = json_file.readlines()
     for line in stuff:
+        line.replace("$data","date")
         restaurants.insert_one(loads(line))
 
 get_data()
