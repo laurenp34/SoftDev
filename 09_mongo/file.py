@@ -49,23 +49,31 @@ def zipscore(zip, thres):
     return restaurants.find( {"address.zipcode": zip, "grades.0.score": {"$lt": int(thres)}})
 
 #Something more clever.
+#Returns all restaurants in a specified zip code matching the specified cuisine.
+#cuisine: "American", "Hamburgers", "Bakery", "Chinese", etc.
+def zipcuisine(zip, cuisine):
+    num = restaurants.count_documents({"address.zipcode": zip, "cuisine": cuisine})
+    print(num, " ", cuisine, " restaurants in zip code ",zip)
+    return restaurants.find({"address.zipcode": zip, "cuisine": cuisine})
+
 
 #only populate restaurants if empty
 if restaurants.estimated_document_count() == 0:
     get_data()
+len = restaurants.estimated_document_count()
+print("Total restaurants found: ",len)
 # print(restaurants.count_documents({"borough": "Bronx"}))
 borough("Bronx")
 zipcode("10462")
 zipgrade("10462","A")
 zipscore("10462",15)
+zipcuisine("10002","Chinese")
 
 
 
 
 #data = ingest("data.json")
 #restaurants.insert(data)
-len = restaurants.estimated_document_count()
-print(len)
 # json_string = json_file.read()
 # json_string.replace("$date", "date")
    # data = json.load(json_file)
