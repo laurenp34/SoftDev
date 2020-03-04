@@ -1,4 +1,4 @@
-# Lauren Pehlivanian
+# Lauren Pehlivanian, Benjamin Avrahami
 # SoftDev pd9
 # K10 -- Import/Export Bank
 # 2020-03-04
@@ -45,6 +45,29 @@ def get_race_dict():
         out[race] = 0
     return out
 
+#returns dictionary of all ages with 0 as value
+#to be used by counter in later function
+def get_age_dict():
+    ages = []
+    for person in col.find():
+        if person['age'] not in ages:
+            ages.append(person['age'])
+    age_dict = {}
+    for i in ages:
+        age_dict[i] = 0
+    return age_dict
+
+def drug_list():
+    #create list of all types of drugs
+    dlist = ["heroin","cocaine","fentanyl","fentanylanalogue","oxycodone","oxymorphone","ethanol","hydrocodone","benzodiazepine","methadone","amphet","tramad","morphine_notheroin","hydromorphone","other"]
+    ddict = {}
+    for d in dlist:
+        ddict[d] = col.find({d:"Y"}).count()
+    print("The total number of people that had each drug in them:")
+    #print data
+    for d in dlist:
+        print("\t",d,": ",ddict[d])
+
 # prints demographic information about users of a collection of drugs
 # drugs is an array of drug names
 def getUsersInfo(drugs):
@@ -68,27 +91,35 @@ def getUsersInfo(drugs):
     #variables to store information about addicts:
     women,men= 0,0
     races = get_race_dict()
+    ages = get_age_dict()
     for addict in addicts:
         if addict['sex'] == "Female":
             women = women + 1
         else:
             men = men + 1
         races[addict['race']] = races[addict['race']] + 1
+        ages[addict['age']] = ages[addict['age']] + 1
+    # find highest age etc
+    high_age = 0
+    age = ""
+    for a in ages:
+        if ages[a] > high_age:
+            high_age = ages[a]
+            age = a
     #print info:
-    print(men," men and ",women," women died.")
-    print("Breakdown of deaths by race:")
-    for race in races:
-        print("\t",race,": ",races[race])
+    # only print info if data is found
     if women == 0 and men == 0:
         print("\tNo data was found for the drugs you entered.")
+    else:
+        print(men," men and ",women," women died.")
+        print("The most affected age was",age,"with",high_age,"deaths.")
+        print("Breakdown of deaths by race:")
+        for race in races:
+            print("\t",race,": ",races[race])
 
 
 setup()
-drugs = ["fentanyl","heroin"]
-getUsersInfo(drugs)
-#drugs.append("oxycodone")
-# drugs.append("oxymorphone")
-drugs.append("ethanol")
+drugs = ["benzodiazepine", "fentanyl"]
 getUsersInfo(drugs)
 
 # col.find()
