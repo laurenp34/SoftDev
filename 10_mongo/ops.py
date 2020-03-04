@@ -1,3 +1,15 @@
+# Lauren Pehlivanian
+# SoftDev pd9
+# K10 -- Import/Export Bank
+# 2020-03-04
+# Team Opioids
+"""
+    Accidental Drug Related Deaths 2012-2018 Dataset
+    This dataset contains a listing of each accidental drug-related death in the state of Connecticut. The dataset's contents include demgographic information about each victim, and a list of each drug found in their system.
+    Data can be found at: https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD
+
+"""
+
 import json
 #from bson.json_util import loads
 
@@ -73,6 +85,10 @@ def getUsersInfo(drugs):
 
 setup()
 drugs = ["fentanyl","heroin"]
+getUsersInfo(drugs)
+#drugs.append("oxycodone")
+# drugs.append("oxymorphone")
+drugs.append("ethanol")
 getUsersInfo(drugs)
 
 # col.find()
