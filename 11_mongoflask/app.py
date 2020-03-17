@@ -56,17 +56,27 @@ def get_people(data):
     people = []
     for item in data:
         people.append(item["person"])
+    return people
+
+def get_info(senator):
+    out = []
+    out.append(description(senator))
+    out.append(website(senator))
+    return out
 
 @app.route("/form_data",methods=["POST"])
 def form():
     if "gender" in request.form:
         res = gender(request.form['gender'])
         ppl = get_people(res)
-        return render_template("index.html",results=ppl)
+        print(ppl)
+        return render_template("index.html",disp=True,results=ppl)
     if "state" in request.form:
-        return render_template("index.html",results=state(request.form["state"]))
+        return render_template("index.html",disp=True,results=get_people(state(request.form["state"])))
     if "party" in request.form:
-        return render_template("index.html",results=party(request.form["party"]))
+        return render_template("index.html",disp=True,results=get_people(party(request.form["party"])))
+    if "senator" in request.form:
+        return render_template("index.html",disp=True,results=get_info(request.form['senator']))
 
     return request.form
 # setup_opioids()

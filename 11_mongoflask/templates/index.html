@@ -32,14 +32,19 @@
          </select>
          <input type="submit" value="submit">
        </form>
-
        <h3>Find information on specific senator:</h3>
        <form action="/form_data" method="POST">
          <input type="text" name="senator" placeholder="Senator Name">
          <input type="submit" value="submit">
        </form>
      </center>
+     {% if disp %}
      <h2>Results from your query:</h2>
+      {% for res in results %}
+        <p>{{res}}<p>
+        <br>
+      {% endfor %}
+     {% endif %}
 
     </body>
 </html>
