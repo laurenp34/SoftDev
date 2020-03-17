@@ -55,7 +55,7 @@ def description(lname):
 def get_people(data):
     people = []
     for item in data:
-        people.append(item["person"])
+        people.append(item["person"]["name"])
     return people
 
 def get_info(senator):
