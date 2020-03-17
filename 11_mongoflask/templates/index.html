@@ -19,10 +19,27 @@
        </form>
        <form action="/form_data" method="POST">
          <br>
-         <label>State (Enter 2-letter abbreviation)</label>
+         <label>State</label>
          <input type="text" name="state">
+         <input type="submit" value="submit" placeholder="Enter 2-letter abbreviation">
+       </form>
+       <form action="/form_data" method="POST">
+         <br>
+         <label>Party</label>
+         <select id="gender" name="gender">
+            <option value="Democrat">Democrat</option>
+            <option value="Republican">Republican</option>
+         </select>
+         <input type="submit" value="submit">
+       </form>
+
+       <h3>Find information on specific senator:</h3>
+       <form action="/form_data" method="POST">
+         <input type="text" name="senator" placeholder="Senator Name">
          <input type="submit" value="submit">
        </form>
      </center>
+     <h2>Results from your query:</h2>
+
     </body>
 </html>

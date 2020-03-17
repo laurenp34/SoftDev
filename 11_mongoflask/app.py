@@ -33,31 +33,41 @@ def setup_senators():
 
 # gets US senators of specified gender
 def gender(gender):
-    return collection.find({"person.gender" : gender}, {"person.name" : 1})
+    return senators_col.find({"person.gender" : gender}, {"person.name" : 1})
 
 # gets US senators from specified state
 def state(state):
-    return collection.find({"state" : state}, {"person.name" : 1})
+    return senators_col.find({"state" : state}, {"person.name" : 1})
 
 # gets US senators from specified party
 def party(party):
-    return collection.find({"party" : party}, {"person.name" : 1})
+    return senators_col.find({"party" : party}, {"person.name" : 1})
 
 # gets the website of a specific US senator
 def website(fname):
-    return collection.find({"person.firstname" : fname}, {"person.name" : 1, "website" : 1})
+    return senators_col.find({"person.firstname" : fname}, {"person.name" : 1, "website" : 1})
 
 # gets all related information of a specific US senator
 def description(lname):
-    return collection.find({"person.lastname" : lname}, {"person.name" : 1, "description" : 1})
+    return senators_col.find({"person.lastname" : lname}, {"person.name" : 1, "description" : 1})
 
 # helper method
-def printer(data):
+def get_people(data):
+    people = []
     for item in data:
-        print(item["person"])
+        people.append(item["person"])
 
 @app.route("/form_data",methods=["POST"])
 def form():
+    if "gender" in request.form:
+        res = gender(request.form['gender'])
+        ppl = get_people(res)
+        return render_template("index.html",results=ppl)
+    if "state" in request.form:
+        return render_template("index.html",results=state(request.form["state"]))
+    if "party" in request.form:
+        return render_template("index.html",results=party(request.form["party"]))
+
     return request.form
 # setup_opioids()
 setup_senators()
