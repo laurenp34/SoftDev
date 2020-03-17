@@ -2,24 +2,27 @@
      <head>
           <title>Data</title>
           <link rel="stylesheet" href="./static/css/style.css">
-          <h1>Querying Data</h1>
+          <h1>Senators Dataset</h1>
      </head>
      <body>
-       <table style="width:100%">
-         <tr>
-           <th><h3>Opioids Dataset</h3></th>
-           <th><h3>Senators Dataset</h3></th>
-         </tr>
-         <tr>
-           <td><h4>Data can be found <a href="https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD">here</a>.</h4></td>
-           <td><h4>Data can be found <a href="https://www.govtrack.us/api/v2/role?current=true&role_type=senator">here</a>.</h4></td>
-         </tr>
-         <tr>
-           <td>
-             <form>
-           </td>
-         </tr>
+      <center>
+       <h2>Data can be found <a href="https://www.govtrack.us/api/v2/role?current=true&role_type=senator">here</a>.</h2>
+       <h3>View senators by:</h3>
 
-
-     </body>
+       <form action="/form_data" method="POST">
+         <label>Gender</label>
+         <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+         </select>
+         <input type="submit" value="submit">
+       </form>
+       <form action="/form_data" method="POST">
+         <br>
+         <label>State (Enter 2-letter abbreviation)</label>
+         <input type="text" name="state">
+         <input type="submit" value="submit">
+       </form>
+     </center>
+    </body>
 </html>
