@@ -1,10 +1,11 @@
-//Emory Walsh & Sophie Nichol
+//Lauren Pehlivanian & Sophie Nichol
 //Softdev pd09
-//K12 -- Connect The Dots
+//K14 -- Ask Circles
 //2020-03-30
 
 var svg = document.getElementById("vimage");
 var move_but = document.getElementById("move");
+var xtra_but = document.getElementById("xtra");
 
 var moving = -1; //global to keep track if already moving
 
@@ -65,6 +66,14 @@ var move = function(timestamp) {
   }
 };
 
+var xtra = function() {
+  var allC = document.getElementsByTagName("circle");
+  for (var i = 0; i<allC.length; i++) {
+    console.log("hi")
+    allC[i].setAttribute("r", Math.floor(Math.random() * 20) + 3);
+  }
+}
+
 //clear each child
 document.getElementById("clear").addEventListener("click", () => {
   while (svg.lastChild) {
@@ -86,3 +95,5 @@ move_but.addEventListener('click', function() {
     moving = -1;
   }
 });
+
+xtra_but.addEventListener('click', xtra);
