@@ -19,4 +19,3 @@ Notes on 3. D3js official tutorial:
 Notes on 4. Bar Chart Tutorial
 * D3 supports method chaining because the create functions return the current selection. This is easier to work with.
     -However be careful because some methods don't return the current selection, like append()
-  

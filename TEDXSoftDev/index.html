@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<style>
+  ul {
+  list-style-image: url('/images/google.jpg');
+  }
+</style>
+<body>
+<body style="background-color:#0e1257;">
+  <font color="white">
+<h1>Google PageRank Algorithm</h1>
+<h4>Lauren Pehlivanian, Vishwaa Sofat | SoftDev pd.9</h4>
+<div>
+<h2>Background</h2>
+  <ul> <h3> Previous Search Engines </h3>
+    <li> Archie: The first search engine that was created. It used an early search engine that crawled through an index of downloadable files. The downloadable files resulted in limited data made only by the listings available and not all the searchable content. </li>
+    <li> Gopher: Ran via Jughead and Veronica. It was only really capable of searching plaintext and database files. You basically had to know the exact location of the page you were looking for. </li>
+    <li> WWW Virtual Library + Yahoo: Both used manually-assembled catalogs of webpages. Because even an average person could contribute to the database and help categorize the data there were bias issues. It also resulted in often searching for things that didn't matter for the user or their search query. Yahoo also cost sites $300 to host on it— was the first to do such a thing. </li>
+    <li> RankDex/Baidu: In 1996--same year but before they developed PageRank--Robin Li developed a webpage sorting algorithm called RankDex, which ranked webpages based on how many other webpages linked to it. This later became the algorithm for Baidu--a Chinese search engine. rin and Page referenced Li in the paper they published for PageRank, part of their research on a new search engine at Stanford; that search engine later became Google.</li>
+  </ul>
+  <ul> <h3> The Objectives of Google Page Rank </h3>
+    <li> Fast Results </li>
+    <li> Accurate Results: Get the user what they want and ideally on the first page of results </li>
+    <li> Cover the entire search space or at least the parts that matter </li>
+  </ul>
+  <ul> <h3> So, What Is Google Page Rank?? </h3>
+    <li> Thanks for asking! </li>
+    <li> Google Page Rank is the algorithm used by Google to rank web pages in their search engine results. PageRank was developed by Larry Page and Sergey Brin in 1996. It's partially named after Larry Page and the webpage. Even though it's been more than two decades since the algorithm was introduced, Google still uses PageRank as a basis for sorting webpages.</li>
+    <li> Sergey Brin had this idea to sort all the information online into a hierarchy of "link popularity" by sorting webpages based on how many other webpages linked to it. The PageRank algorithm outputs a probability distribution used to represent the likelihood that a person randomly clicking on links will arrive at any particular page. </li>
+    <li> You can read <a href="http://infolab.stanford.edu/~backrub/google.html"> the original paper </a>, but we will cover the gist for you. This is also good for you to understand the progression of search engines and how RankDex and Robin Li's work inspired the creation of Google. </li>
+  </ul>
+</div>
+<div>
+</div>
+
+<h2>The Algorithm</h2>
+<p>PageRank is an iterative algorithm, meaning each time we pass in the inputs and run the function, these new PageRank values we obtain become the next round's input values.</p>
+<img src="algorithm.png" alt="algorithm" width="400px" style="  display: block;margin-left: auto;margin-right: auto;"></img>
+<p>In english, that would be: “the page rank of a page, pi, is, for every link into that page, the sum of the page rank of each page linking into that page divided by the number of outbound links to that page, reduced by a dampening factor. Then offset again by (1-d)/n so that the page ranks of all the pages in the models = # of backlinks.” But don't worry, we'll break it down.</p>
+<br>
+  <ul>
+    <li>Important terminology:</li>
+      <ul>
+        <li><strong>Inlink:</strong> A link linking from the given site to another site.</li>
+        <li><strong>Outlink:</strong> A link linking to a given site from another site.</li>
+        <li><strong>Dampening Factor (d):</strong> Commonly accepted as 0.85, it is used to "dampen" the weight of each page's data.</li>
+          <ul><li>The PageRank theory holds that an imaginary surfer who is randomly clicking on links will eventually stop clicking. The probability, at any step, that the person will continue is represented by <strong>d</strong>.</li></ul>
+      </ul>
+      <br>
+    <li>To start, consider a simplification of the a group of webpages returned when a user searches for a topic.</li>
+    <br>
+    <div>
+      <img src="diagram.png" alt="Links diagram" width="400px"></img>
+      <strong>** Important: </strong>When counting links, the dot represents the page the other site links TO.
+    </div>
+  </ul>
+  <h4>How to calculate PageRank:</h4>
+  <ol>
+    <li>Tally up the total # of outlinks and inlinks for each page. </li>
+      <img src="tally.png" alt="Links tally chart" style="text-align: center;" width="700px"></img><br><br>
+    <li>Find which pages link to each other.</li>
+    <ul><li>This chart represents the specific backlinks each page contains. Each page's backlinks are listed in the page's column.</li>
+      <li>The way we fill in this chart is by going throug each page in the yellow column and finding which pages it links to. So, A links only to C so we would check that box. B links only to C as well. C links to A, B, E. And so on.</li>
+    </ul>
+      <img src="checkboxes.png" alt="checkboxes" width="700px"></img><br><br>
+    <li>Calculate each page's initial PageRank (PR) value.</li>
+    <ul><li>The function is iterative and technically you could start with any values (some people choose 1 for every page). This is because eventually, after running PR many times, each page's PR value will begin to converge to the same value no matter what starting value you choose. It is helpful to start with somewhat accurate values, though, because it will shorten the amount of times to run the function before it converges.</p>
+        <li>We will obtain the initial PR values by applying the PR multiplier:<br>
+          <img src="prmult.png" width="500px"></img><br></li>
+      </ul>
+      <img src="checkboxes0.png" width="700px" alt="table3"></img><br><br>
+    <li>Distribute each page's PR value to the pages it links to.</li>
+    <ul><li>Do this by going row by row and distributing the PR value of the page in the yellow column to each cell in its row.</li>
+      <br><li>Then, re-adjust your values by 1 minus the dampening factor (0.85) and sum all the values in each page's column to get its new PR value. This will be the input to the next iteration.</li>
+      <li>Your first iteration of PR is complete!!! Be proud of yourself. </li>
+      </ul>
+
+      <img src="final.png" alt="final tbl" width="800px"></img><br>
+  </ol>
+
+<h4>To complete the entire process, check out <a href="https://github.com/laurenp34/SoftDevWork/blob/master/p3/demo.py">the algorithm we coded.</a></h4>
+<p>You can input the data and run it yourself. The page with the highest PR value is the most relevant page! No spoilers here.</p>
+
+</body>
+</html>
