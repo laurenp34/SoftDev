@@ -1,0 +1,22 @@
+Notes for 2. By Example
+* You can use external files to be used as data. In the code, we see a JSON file attached and read.
+* Observable has imports that we can use. These imports are existing pieces of codes from your past work or other users. This could be helpful with having separate files like our class files for Java, and integrating them without having one long clunky file. D3 already has existent files we can call upon as imports for several basic visualizations.
+* The data flow in Observable allows us to see changes as we update them. This doesn't require rewriting code but simply a new test case with updated variables would change the visualization.
+
+Notes on 3. D3js official tutorial:
+* D3's purpose is to bind data (in arrays for example) to DOM elements and apply data-driven transformations based on that.
+* D3 allows you to select all elements at once (which is something you can't do normally in js).
+* D3 is declarative and operates on "arbitrary sets of nodes called selections", which I think means it resembles object-oriented programming because selections call functions onto themselves.
+* D3 recognizes tag names like "body" and "p" automatically. It can also create/register event listeners.
+* There seems to be built-in variable names. Like when you pass i as the parameters to a function, it is the index (?).
+* join-by-index is default (first argument = first index, etc.)
+* Once the data has been bound to the document, you can remove the .data() part because the data is already bound and D3 will retrieve the previously-bound data.
+* Still not 100% clear on this but enter and exit are used to instantiate and remove extra data respectively. If there aren't enough data elements for the number of nodes you will take from the enter section.
+* D3 naturally works really well for animations because it can incorporate dynamic data easily. You can use transition() for gradual effects.
+* When animating, D3 modifies only the attributes that actually change, which greatly increases efficiency.
+    - helps you specify precisely which operations run on which nodes.
+
+Notes on 4. Bar Chart Tutorial
+* D3 supports method chaining because the create functions return the current selection. This is easier to work with.
+    -However be careful because some methods don't return the current selection, like append()
+  

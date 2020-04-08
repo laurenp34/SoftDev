@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--D3 demo: hardcoded bars removed, to be generated fr data-->
+<!--
+    Can yield a horizontal bar chart if properly bound to data
+    (steelblue bars, white number overlays)
+    ...but will yield only blank page at first.
+  -->
+<!--
+Lauren Pehlivanian, Sophie Nichol
+Team StomachNeedle
+SoftDev2 pd9
+2020-04-03
+-->
+<html>
+<head>
+  <script src="http://d3js.org/d3.v5.min.js"
+  	charset="utf-8">
+    </script>
+
+  <style>
+    .chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+    }
+  </style>
+
+</head>
+<body>
+<!-- <div class="chart">
+</div> -->
+
+<p>Paragraph 1</p><p>Paragraph 2</p><p>Paragraph 3</p><p>Paragraph 4</p><p>Paragraph 5</p><p>Paragraph 6</p>
+<svg height="400" width="400">
+<circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+  <circle cx="150" cy="150" r="40" stroke="black" stroke-width="3" fill="blue" />
+  <circle cx="250" cy="250" r="40" stroke="black" stroke-width="3" fill="green" />
+</svg>
+<!-- STEP 3 -->
+  <script type="text/javascript">
+    var paragraphs = document.getElementsByTagName("p");
+    console.log(paragraphs);
+    for (var i=0; i<paragraphs.length; i++) {
+      var paragraph = paragraphs.item(i);
+      paragraph.style.setProperty("color", "blue", null);
+    }
+    // above section is equivalent to:
+    d3.selectAll("p").style("color", "yellow");
+    //d3.selectAll("body").style("background-color", "black");
+
+    d3.selectAll("p")
+      .data([4,18,15,16,23,42,12])
+        .style("font-size", function(d) { return d + "px"});
+
+    d3.select("body")
+      .selectAll("p")
+      .data([4, 8, 15, 16, 23, 42])
+      .enter().append("p")
+        .text(function(d) {return "I'm number " + d + "!"});
+
+        //alternates shades of gray for even and odd nodes
+        d3.selectAll("p").style("color", function(d, i) {
+          return i % 2 ? "#fff" : "#eee";
+        });
+
+    //randomly colors paragraphs
+    d3.selectAll("p").style("color", function() {
+      return "hsl("+ Math.random()*360+ ",100%,50%)";
+    });
+
+    // Update…
+    var p = d3.select("body")
+      .selectAll("p")
+      .data([4, 8, 15, 16, 23, 42])
+        .text(function(d) { return d; });
+
+    // Enter…
+    p.enter().append("p")
+        .text(function(d) { return d; });
+
+    // Exit…
+    p.exit().remove();
+
+    //animations
+    d3.select("body").transition()
+    .style("background-color", "black");
+
+    // var scale = 10;
+    // d3.selectAll("circle").transition()
+    // .duration(50)
+    // .delay(function(d, i) { return i * 10; })
+    // .attr("r", function(d) { return Math.sqrt(d * scale); });
+    //*note: I"m not sure why the last circle animation doesn't work and I tried debugging.
+
+    var data = [4,8,15,16,23];
+    const div = d3.select('body')
+	     .append('div')
+      .style("font", "10px sans-serif")
+      .style("text-align", "right")
+      .style("color", "white");
+      //Note: I copied the tutorial's commands(.create("div"))which didn't work.
+
+    x = d3.scaleLinear()
+          .domain([0, d3.max(data)])
+          .range([0,420]);
+        
+
+    div.selectAll("div")
+      .data(data)
+      .join("div")
+        .style("background", "steelblue")
+        .style("padding", "3px")
+        .style("margin", "1px")
+        .style("width", d => `${x(d)}px`)
+        .text(d => d);
+
+    console.log(div.node())
+
+  </script>
+
+</body>
+
+<!--------------------------------
+    Entering the following commands via console will
+    incrementally re-create your hardcoded chart...
+
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+
+    //Select your chart.
+    var chart = d3.select(".chart");
+
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+
+    (this defines selection to which you will join data)
+
+    //Join your data.
+    var barUpdate = bar.data(data);
+
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function(d) {
+    return d * 10 + "px"; });
+
+    //Label each bar.
+    barEnter.text(function(d) { return d; });
+  -------------------------------->
+
+  <!-- OBSERVATIONS / NOTES:
+  * You can enter a function directly into the parameter of a function (for example to text())
+  * You can add elements repeatedly using append(). The element doesn't already have to exist in the HTML and you don't have to clone it.
+  * It is somewhat object-oriented (?) because bar can call the functions onto itself.
+  * You can concatenate strings (which is something you couldn't do in Java)
+
+  * nothing happens until barEnter is defined, where you append
+  divs
+  * append bars each of max length
+  * entering the style causes them to become proportional
+  * d does reference the data item in your dataset
+  * bars appear small, when text added they expand
+  * much easier to change proportion
+
+  QUESTIONS: -stuff we were originally wondering
+  * What is the point of doing enter() before append()?
+  * What can you join to an HTML element? Does it have to be an array?
+  * How could you create more than one div for each element in the array?
+  * What is the parameter d passed into the function for style() and text()? Is it each element of the array?  -->
+
+  <!-- PREDICTIONS
+  * first initialize your dataset and input the chart you're using
+  * note: select chart through class
+  * "join" the data, not sure what this means, maybe primary key?
+  * loading data into what you joined it on (?)
+  * adding new elements using joined data
+  * setting the proportion between bars using styling
+  * label bar with text of data (d = data like e = event ?)
+-->
